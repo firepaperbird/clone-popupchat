@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatchilla</title>
+    <script src="/chatchilla-live-chat-local-antd.js"></script>
+    <script src="/chatchilla-live-chat-local-vendor.js"></script>
+    <script src="/chatchilla-live-chat-local-react.js"></script>
+    <style>
+      body {
+        background-color: white;
+        height: 1040px;
+        margin: 0;
+        padding-top: 5px;
+        padding-left: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function GetURLParameter(sParam) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++) {
+          var sParameterName = sURLVariables[i].split('=');
+          if (sParameterName[0] == sParam) {
+            return sParameterName[1];
+          }
+        }
+      }
+      var groupId = GetURLParameter('groupId');
+      var themeColor = GetURLParameter('color');
+      var liveChat_header_text = GetURLParameter('h');
+      var liveChat_intro = GetURLParameter('i');
+      var liveChat_terms = GetURLParameter('t');
+      var liveChat_auto_intro_message = GetURLParameter('m');
+      var liveChat_logo = GetURLParameter('l');
+      if (themeColor) window.themeColor = decodeURIComponent(themeColor);
+      window.previewData = {
+        liveChat_header_text: liveChat_header_text && decodeURI(liveChat_header_text),
+        liveChat_intro: liveChat_intro && decodeURI(liveChat_intro),
+        liveChat_terms: liveChat_terms && decodeURI(liveChat_terms),
+        liveChat_auto_intro_message: liveChat_auto_intro_message && decodeURI(liveChat_auto_intro_message),
+        liveChat_logo: liveChat_logo && decodeURI(liveChat_logo),
+      };
+      // setTimeout(() => {
+      var script = document.createElement('script');
+      script.setAttribute('src', './chatchilla-live-chat-local-app.js');
+      script.setAttribute('id', 'chatchilla-live-chat-script');
+      document.body.appendChild(script);
+      script.onload = function () {
+        window.initChatchillaLiveChat({
+          groupId: groupId,
+          isPreview: true,
+        });
+      };
+      // }, 4000);
+    </script>
+  </body>
+</html>

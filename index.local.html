@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="media/icons/favicon.ico" />
+    <title>Chatchilla</title>
+    <script src="/chatchilla-live-chat-local-antd.js"></script>
+    <script src="/chatchilla-live-chat-local-vendor.js"></script>
+    <script src="/chatchilla-live-chat-local-react.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <script>
+      // setTimeout(() => {
+      var script = document.createElement('script');
+      script.setAttribute('src', './chatchilla-live-chat-local-app.js');
+      script.setAttribute('id', 'chatchilla-live-chat-script');
+      document.body.appendChild(script);
+      script.onload = function () {
+        window.initChatchillaLiveChat({
+          groupId: '96c2103f-d5be-478c-9680-567ef69bfaf0',
+        });
+      };
+      // }, 4000);
+    </script>
+  </body>
+</html>

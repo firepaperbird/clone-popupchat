@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="media/icons/favicon.ico" />
+    <title>Chatchilla</title>
+  </head>
+  <body>
+    <script>
+      var script = document.createElement('script');
+      script.setAttribute('src', './chatchilla-live-chat-local-app.js');
+      script.setAttribute('id', 'chatchilla-live-chat-script');
+      document.body.appendChild(script);
+      script.onload = function () {
+        window.initChatchillaLiveChat({
+          groupId: 'fac84a9e-8974-4073-b12e-8c3e24d15b7b'
+        });
+      };
+    </script>
+  </body>
+</html>
